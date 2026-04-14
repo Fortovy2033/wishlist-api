@@ -1,0 +1,16 @@
+services:
+  wishlist-postgres:
+    image: postgres:18.3-bookworm
+    container_name: wishlist-postgres
+    env_file:
+      - .env.example
+    volumes:
+      - ./out/pgdata:/var/lib/postgresql
+    ports:
+      - "5432:5432"
+    restart: always
+
+  wishlist-postgres-migrate:
+    image: migrate/migrate:v4.19.1
+    volumes:
+      - ./migrations:/migrations
