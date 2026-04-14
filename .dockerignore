@@ -1,0 +1,7 @@
+out/
+
+.git/
+.gitignore
+
+.env*
+Makefile
